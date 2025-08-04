@@ -5,3 +5,4 @@ export { LoginForm } from "./LoginForm/LoginForm";
 export { Navbar } from "./Navbar/Navbar";
 export { UsersForm } from "./UsersForm/UsersForm";
 export { UsersTable } from "./UsersTable/UsersTable";
+export { SignUpForm } from "./SignUpForm/SignUpForm";

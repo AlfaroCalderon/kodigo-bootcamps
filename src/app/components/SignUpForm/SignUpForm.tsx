@@ -1,46 +1,35 @@
 'use client'
+import React from 'react'
 import { MdLogin } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
 import { useForm } from 'react-hook-form';
-import { login} from '../actions'
-import { useState } from "react";
+import { signup } from '../actions'
 
 type Inputs = {
   email: string;
   password: string;
 }
 
-export const LoginForm = () => {
+export const SignUpForm = () => {
 
   const {register, handleSubmit, watch, formState: {errors}} = useForm<Inputs>();
 
-  const onSubmit = async (data: Inputs) => {
+  const onSubmit = (data: Inputs) => {
     const formData = new FormData();
     formData.append('email', data.email);
     formData.append('password', data.password);
-    const result = await login(formData);
-    if (!result) {
-      setShowError(true);
-    }
+    signup(formData);
   }
-
-
-const [showError, setShowError] = useState(false);
 
   return (
     <>
-      {showError && (
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded shadow z-50">
-          <p className='font-bold'>Login failed. Please check your credentials.</p>
-        </div>
-      )}
-      <div className="w-full h-screen bg-[url('https://res.cloudinary.com/dcostp8ak/image/upload/v1754238679/pexels-padrinan-19670_zdlpr6.jpg')] bg-center bg-no-repeat bg-cover flex items-center justify-center">
-        <form className='p-8 rounded shadow-md w-96 bg-white' onSubmit={handleSubmit(onSubmit)}>
-          <FaUserCircle size={50} className='block mx-auto mb-4' />
-          <h2 className='text-2xl font-bold mb-6 text-center'>Login</h2>
-          <div className='mb-4'>
+        <div className="w-full h-screen bg-[url('https://res.cloudinary.com/dcostp8ak/image/upload/v1754238679/pexels-padrinan-19670_zdlpr6.jpg')] bg-center bg-no-repeat bg-cover flex items-center justify-center">
+          <form className='p-8 rounded shadow-md w-96 bg-white' onSubmit={handleSubmit(onSubmit)}>
+            <FaUserCircle size={50} className='block mx-auto mb-4' />
+            <h2 className='text-2xl font-bold mb-6 text-center'>Sign Up</h2>
+            <div className='mb-4'>
               <label htmlFor='email' className='block text-sm font-medium text-gray-700'>Email</label>
-              <input type='text' id='email' {
+              <input type='text' id='text' {
                 ...register('email', { required: 'Email is required', maxLength: { value: 100, message: 'Email is required and must be 100 characters or less' }, pattern: { value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, message: 'Invalid email format' } })
               } className='mt-1 block w-full border border-gray-300 rounded-md p-2' />
               {errors.email && (
@@ -58,11 +47,8 @@ const [showError, setShowError] = useState(false);
             </div>
             <button type='submit' className='w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600'>
               <MdLogin size={24} className='inline-block mr-2' />
-              Login
+              Sign Up
             </button>
-            <p className='mt-4 text-sm text-center'>
-              Don&apos;t have an account? <a href='/signup' className='text-blue-500 hover:underline'>Sign up</a>
-            </p>
           </form>
         </div>
     </>

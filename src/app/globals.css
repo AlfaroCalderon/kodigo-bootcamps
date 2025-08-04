@@ -1,1 +1,5 @@
 @import "tailwindcss";
+/* Hide the navbar when .hide-navbar is on the body */
+body.hide-navbar nav {
+  display: none !important;
+}

@@ -6,7 +6,7 @@ import { Navbar } from "../Navbar/Navbar";
 export const ConditionalNavbar = () => {
   const pathname = usePathname();
   
-  if ( pathname === "/" || pathname === "/login") {
+  if ( pathname === "/" || pathname === "/login"  || pathname === "/signup" || pathname === "/error" || pathname === "/check-email" || pathname === "/auth/confirm") {
     return null;
   }
   
