@@ -1,6 +1,6 @@
 'use client'
 
-import { Rusuario } from '@/app/components/Rusuario/Rusuario'
+import { Rusuario } from '@/app/components';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const queryClient = new QueryClient()

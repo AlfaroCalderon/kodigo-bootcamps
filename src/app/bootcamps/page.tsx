@@ -1,6 +1,5 @@
 'use client'
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { BootcampsDashboard } from "../components"
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -32,7 +31,7 @@ const Page =  () => {
 
   return (
     <QueryClientProvider client={queryClient} >
-    <BootcampsDashboard />
+    <h1>hola</h1>
     </QueryClientProvider>
   )
 }

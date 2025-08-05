@@ -1,5 +1,5 @@
 'use client'
-import { Cursos } from '@/app/components/Cursos/Cursos'
+import { Cursos } from '@/app/components';
 import { createClient } from "@/utils/supabase/client";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useRouter } from "next/navigation";
@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 const queryClient = new QueryClient()
 
-const page = () => {
+const Page = () => {
 
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -34,4 +34,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
