@@ -47,11 +47,11 @@ export const Cursos = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 p-6">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-8">
+        <div className="mb-8 w-full text-center">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">BOOTCAMPS IMPARTIDOS</h1>
           <p className="text-gray-600">Descubre todos los cursos disponibles en nuestra plataforma educativa</p>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-4">
           {data && data.map(curso => (
             <div key={curso.id} className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl">
               <div className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-600 p-6 text-white">
